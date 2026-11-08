@@ -19,17 +19,17 @@ export function Topbar() {
 
   return (
     <header
-      className="h-[52px] flex items-center justify-between px-4 border-b shrink-0"
+      className="h-[52px] flex items-center justify-between gap-2 px-2 sm:px-4 border-b shrink-0"
       style={{
         borderColor: 'var(--border)',
         background: 'var(--bg-raised)',
       }}
     >
-      <div className="flex items-center gap-5">
+      <div className="flex min-w-0 items-center gap-2 sm:gap-5">
         <Logo />
         <ScenarioPicker value={scenarioId} onChange={setScenario} />
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex shrink-0 items-center gap-1 sm:gap-3">
         <ModeToggle mode={mode} onChange={setMode} />
         <SpeedPicker speed={speed} onChange={setSpeed} />
         <SettingsButton />
@@ -49,7 +49,9 @@ function Logo() {
           boxShadow: '0 0 10px var(--accent-glow)',
         }}
       />
-      <span className="font-semibold tracking-tight text-[15px]">Scryer</span>
+      <span className="hidden font-semibold tracking-tight text-[15px] sm:inline">
+        Scryer
+      </span>
     </div>
   )
 }

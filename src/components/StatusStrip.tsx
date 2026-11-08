@@ -14,7 +14,7 @@ export function StatusStrip() {
 
   return (
     <footer
-      className="h-8 flex items-center px-4 gap-3 text-xs font-mono border-t shrink-0"
+      className="h-8 flex items-center whitespace-nowrap px-2 sm:px-4 gap-1.5 sm:gap-3 text-[10px] sm:text-xs font-mono border-t shrink-0"
       style={{
         borderColor: 'var(--border)',
         background: 'var(--bg-raised)',

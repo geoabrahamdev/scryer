@@ -13,14 +13,14 @@ export function ScenarioPicker({
   const scenarios = listScenarios()
   return (
     <label
-      className="flex items-center gap-2 h-8 px-3 rounded text-xs font-mono"
+      className="flex min-w-0 items-center gap-2 h-8 px-2 sm:px-3 rounded text-xs font-mono"
       style={{ background: 'var(--bg-overlay)', color: 'var(--text-muted)' }}
     >
-      <span>Scenario</span>
+      <span className="hidden lg:inline">Scenario</span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-transparent outline-none cursor-pointer"
+        className="min-w-0 max-w-[132px] bg-transparent outline-none cursor-pointer sm:max-w-none"
         style={{ color: 'var(--text-primary)' }}
       >
         {scenarios.map((s) => (
@@ -59,7 +59,7 @@ export function ModeToggle({
             onClick={() => !isDisabled && onChange(m)}
             disabled={isDisabled}
             title={isDisabled ? 'Live mode ships in v2' : undefined}
-            className="px-3 h-full rounded transition-colors"
+            className={`${isDisabled ? 'hidden sm:block' : ''} px-2 sm:px-3 h-full rounded transition-colors`}
             style={{
               background: isActive ? 'var(--bg-base)' : 'transparent',
               color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
@@ -84,10 +84,10 @@ export function SpeedPicker({
 }) {
   return (
     <label
-      className="flex items-center gap-2 h-8 px-3 rounded text-xs font-mono"
+      className="flex items-center gap-1 sm:gap-2 h-8 px-2 sm:px-3 rounded text-xs font-mono"
       style={{ background: 'var(--bg-overlay)', color: 'var(--text-muted)' }}
     >
-      <span>Speed</span>
+      <span className="hidden sm:inline">Speed</span>
       <select
         value={speed}
         onChange={(e) => onChange(Number(e.target.value) as Speed)}
