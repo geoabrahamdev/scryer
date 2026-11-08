@@ -31,6 +31,10 @@ https://geoabrahamdev.github.io/scryer/.
       clean against the strict TypeScript config
 - [x] GitHub Pages Deploy run 42505640453 succeeded for merge 33b01b8;
       live HTML and hashed JS/CSS assets return HTTP 200
+- [x] Removed the stale Claude entry from the GitHub homepage
+      Contributors panel by cycling the default branch through a clean
+      temporary ref; REST data, Insights data, and the visible panel now
+      agree that Claude is absent
 
 ## In progress
 - None.
