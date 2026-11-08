@@ -1,0 +1,42 @@
+/*
+ * Scryer — design tokens.
+ * The ONLY file where raw color values live. Everything else references these.
+ * See docs/scryer-implementation-plan.md § 1 for the palette rationale.
+ */
+
+:root {
+  /* Surface — near-black with a blue cast; dense like Foundry */
+  --bg-base:      #0A0E14;
+  --bg-raised:    #11161F;
+  --bg-overlay:   #1A212E;
+  --border:       #1F2937;
+
+  /* Text */
+  --text-primary: #E6EDF3;
+  --text-muted:   #7D8590;
+
+  /* Accents — one per entity type. Four max. */
+  --accent-1:     #5EEAD4;  /* teal   — primary entity type */
+  --accent-2:     #F472B6;  /* magenta— secondary entity type */
+  --accent-3:     #FBBF24;  /* amber  — relation */
+  --accent-4:     #818CF8;  /* indigo — tertiary entity type */
+
+  /* Glows */
+  --accent-glow:  rgba(94, 234, 212, 0.35);
+
+  /* Signals */
+  --error:        #F87171;
+  --success:      #4ADE80;
+
+  /* Type scale */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Rhythm */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Timing */
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+}
