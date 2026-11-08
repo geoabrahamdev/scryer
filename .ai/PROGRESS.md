@@ -1,8 +1,8 @@
 # Current State — updated 2026-11-08
 
 ## Phase
-Phase 1: static shell. Code complete on branch `phase-1-shell`. Awaiting
-local verification + Pages deploy to close the Phase 1 gate.
+Phase 1: static shell. Merged to `main`, deployed, and verified live at
+https://geoabrahamdev.github.io/scryer/.
 
 ## Done
 - [x] Phase 0 live: https://geoabrahamdev.github.io/scryer/
@@ -23,14 +23,22 @@ local verification + Pages deploy to close the Phase 1 gate.
       space reserved for Phase 2 replay trigger
 - [x] tsc -b clean, strict mode with noUncheckedIndexedAccess
 - [x] Every src file under the 150-LOC CONVENTIONS limit
+- [x] Responsive shell verified at 1440×900 and 390×844; no horizontal
+      overflow and all three mobile tabs render the expected panel
+- [x] Query suggestion, '/' focus shortcut, speed picker, and disabled
+      live mode verified; browser console clean
+- [x] `npm ci` audit clean (0 vulnerabilities) and `npm run build`
+      clean against the strict TypeScript config
+- [x] GitHub Pages Deploy run 42505640453 succeeded for merge 33b01b8;
+      live HTML and hashed JS/CSS assets return HTTP 200
 
 ## In progress
-- [ ] Local `npm run dev` + `npm run build` smoke test on Windows
-- [ ] Phase 1 gate: 10-second clip of the empty shell on mobile per
-      plan sec 3. Capture BEFORE merging phase-1-shell to main.
+- None.
 
 ## Blocked / open questions
-- None.
+- Vite reports a 730 kB minified JS chunk (229 kB gzip). This is not a
+  Phase 1 blocker, but Phase 2 should consider lazy-loading Cytoscape or
+  manual chunking before the app grows further.
 
 ## Next session
 Phase 2: replay engine + scenario 1 frames per plan sec 3. Spec the
