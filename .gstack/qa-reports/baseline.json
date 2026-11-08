@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-08",
+  "url": "http://localhost:5173/scryer/",
+  "branch": "main",
+  "commit": "d633fc6",
+  "healthScore": 61,
+  "phase1AcceptancePassed": 1,
+  "phase1AcceptanceTotal": 10,
+  "issues": [
+    { "id": "ISSUE-001", "title": "The running target is still Phase 0", "severity": "critical", "category": "functional" },
+    { "id": "ISSUE-002", "title": "Topbar, three panels, and status strip are absent", "severity": "high", "category": "visual" },
+    { "id": "ISSUE-003", "title": "Graph, document viewer, and query panel are absent", "severity": "critical", "category": "functional" },
+    { "id": "ISSUE-004", "title": "Keyboard shortcuts are inert", "severity": "high", "category": "functional" },
+    { "id": "ISSUE-005", "title": "Mobile tabs and graph panel are absent", "severity": "critical", "category": "ux" },
+    { "id": "ISSUE-006", "title": "Mobile tagline clips outside the viewport", "severity": "medium", "category": "visual" }
+  ],
+  "categoryScores": {
+    "console": 100,
+    "links": 100,
+    "visual": 47,
+    "functional": 0,
+    "ux": 42,
+    "performance": 100,
+    "content": 70,
+    "accessibility": 77
+  }
+}
