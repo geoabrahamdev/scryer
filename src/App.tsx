@@ -1,47 +1,75 @@
+import { Topbar } from './components/Topbar'
+import { StatusStrip } from './components/StatusStrip'
+import { DocumentViewer } from './components/DocumentViewer'
+import { GraphCanvas } from './components/GraphCanvas'
+import { QueryPanel } from './components/QueryPanel'
+import { MobileTabs } from './components/MobileTabs'
+import { useAppStore } from './store/app-store'
+import { useIsMobile } from './hooks/use-is-mobile'
+import { useKeyboardShortcuts } from './hooks/use-keyboard-shortcuts'
+
 /**
- * Phase 0 placeholder shell.
+ * Top-level layout switcher.
  *
- * Phase 1 will replace this with the real three-panel layout
- * (DocumentViewer / GraphCanvas / QueryPanel) defined in
- * docs/scryer-implementation-plan.md § 1.
- *
- * Until then, this screen exists to prove the deploy pipeline is green and
- * the token palette renders on real hardware.
+ * Desktop (>=768px): three panels side by side per plan § 1
+ *   DocumentViewer  24%   —  GraphCanvas  52%   —  QueryPanel  24%
+ * Mobile  (<768px):  tab strip switches which of the three is visible,
+ *                    with the graph getting ~70vh when active.
  */
 export function App() {
+  useKeyboardShortcuts()
+  const isMobile = useIsMobile()
+
   return (
-    <main className="min-h-screen flex items-center justify-center p-8 canvas-grid">
-      <div className="max-w-xl text-center">
-        <p
-          className="font-mono text-xs uppercase tracking-[0.3em] mb-4"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          phase 0 · foundations
-        </p>
-        <h1 className="text-5xl font-semibold mb-4 tracking-tight">Scryer</h1>
-        <p className="text-lg mb-2" style={{ color: 'var(--text-muted)' }}>
-          Ontologies from messy text, in your browser.
-        </p>
-        <div className="mt-10 flex items-center justify-center gap-2 text-xs font-mono">
-          <Dot color="var(--accent-1)" />
-          <Dot color="var(--accent-2)" />
-          <Dot color="var(--accent-3)" />
-          <Dot color="var(--accent-4)" />
-          <span className="ml-3" style={{ color: 'var(--text-muted)' }}>
-            palette locked
-          </span>
-        </div>
-      </div>
-    </main>
+    <div
+      className="h-screen flex flex-col"
+      style={{ background: 'var(--bg-base)' }}
+    >
+      <Topbar />
+      <main className="flex-1 flex min-h-0">
+        {isMobile ? <MobileLayout /> : <DesktopLayout />}
+      </main>
+      <StatusStrip />
+    </div>
   )
 }
 
-function Dot({ color }: { color: string }) {
+function DesktopLayout() {
   return (
-    <span
-      aria-hidden="true"
-      className="inline-block h-3 w-3 rounded-full"
-      style={{ background: color, boxShadow: `0 0 12px ${color}` }}
-    />
+    <>
+      <aside
+        className="w-[24%] min-w-[260px] border-r"
+        style={{ borderColor: 'var(--border)' }}
+      >
+        <DocumentViewer />
+      </aside>
+      <div className="flex-1 min-w-0">
+        <GraphCanvas />
+      </div>
+      <aside
+        className="w-[24%] min-w-[280px] border-l"
+        style={{ borderColor: 'var(--border)' }}
+      >
+        <QueryPanel />
+      </aside>
+    </>
+  )
+}
+
+function MobileLayout() {
+  const activePanel = useAppStore((s) => s.activePanel)
+  return (
+    <div className="flex-1 flex flex-col min-h-0">
+      <MobileTabs />
+      <div className="flex-1 min-h-0">
+        {activePanel === 'document' && <DocumentViewer />}
+        {activePanel === 'graph' && (
+          <div style={{ height: '70vh' }}>
+            <GraphCanvas />
+          </div>
+        )}
+        {activePanel === 'query' && <QueryPanel />}
+      </div>
+    </div>
   )
 }
