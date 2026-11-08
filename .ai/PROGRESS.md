@@ -1,7 +1,7 @@
 # Current State — updated 2026-11-08
 
 ## Phase
-Phase 0: Foundations (weekend 1, first half)
+Phase 0: Foundations complete and published.
 
 ## Done
 - [x] Repo scaffolded on disk
@@ -11,10 +11,15 @@ Phase 0: Foundations (weekend 1, first half)
 - [x] GitHub Actions deploy workflow
 - [x] Vite + TS + Tailwind v4 + Cytoscape dependency manifest
 - [x] vite.config.ts with /scryer/ base path
-- [x] index.html + src/main.ts entry rendering "hello world" shell
+- [x] index.html + src/main.ts entry rendering the Phase 0 shell
+- [x] Public repository: https://github.com/geoabrahamdev/scryer
+- [x] GitHub Pages enabled with Actions as the publishing source
+- [x] Live Phase 0 site: https://geoabrahamdev.github.io/scryer/
+- [x] Fresh `npm ci` audit: 0 vulnerabilities
+- [x] Production build and live browser verification passed
 
 ## In progress
-- [ ] First green deploy to GitHub Pages (requires: push to GitHub, enable Pages)
+- None.
 
 ## Blocked / open questions
 - None.
