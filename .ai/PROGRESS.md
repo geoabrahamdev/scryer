@@ -1,8 +1,7 @@
 # Current State — updated 2026-11-08
 
 ## Phase
-Phase 1 verification blocked: the checked-out app and live localhost route still
-render the Phase 0 foundations splash.
+Phase 0: Foundations (weekend 1, first half)
 
 ## Done
 - [x] Repo scaffolded on disk
@@ -12,24 +11,19 @@ render the Phase 0 foundations splash.
 - [x] GitHub Actions deploy workflow
 - [x] Vite + TS + Tailwind v4 + Cytoscape dependency manifest
 - [x] vite.config.ts with /scryer/ base path
-- [x] Phase 0 splash and documented color palette
-- [x] Phase 1 QA report, screenshots, and regression baseline captured
-- [x] Production build passes
+- [x] index.html + src/main.ts entry rendering "hello world" shell
 
 ## In progress
-- [ ] Locate or recover the claimed Phase 1 implementation
-- [ ] First green deploy to GitHub Pages (requires push and Pages enablement)
+- [ ] First green deploy to GitHub Pages (requires: push to GitHub, enable Pages)
 
 ## Blocked / open questions
-- `main` is the only local ref and contains only `[phase-0]` commits.
-- `http://localhost:5173/scryer/` returns the Phase 0 splash after hard reload.
-- Phase 1 acceptance coverage is 1/10; only the palette/tokens are observable.
-- No automated test framework is configured.
+- None.
 
 ## Next session
-Make the Phase 1 implementation available in this repository/branch, then rerun
-`.gstack/qa-reports/baseline.json` and verify all ten acceptance criteria.
+Phase 1: build the three-panel shell per section 1 of the implementation plan.
+Lock the dark theme via tokens.css BEFORE wiring any component — the empty
+shell must already look premium at the phase gate.
 
 ## Reminder to future sessions
-Read .ai/CONTEXT.md, .ai/DECISIONS.md, the last two files in .ai/sessions/, and
+Read .ai/CONTEXT.md, .ai/DECISIONS.md, the last file in .ai/sessions/, and
 `git log --oneline -20` before touching code.
